@@ -9,7 +9,7 @@ import org.jutils.jhardware.model.ProcessorInfo;
  */
 public class ProcessorLogger extends AbstractLogger {
     public void collect() {
-        ProcessorInfo info= HardwareInfo.getProcessorInfo();
-        sendToLogStash(info.getFullInfo());
+        ProcessorInfo info = HardwareInfo.getProcessorInfo();
+        sendToLogStash(info.getFullInfo(), 4445);
     }
 }

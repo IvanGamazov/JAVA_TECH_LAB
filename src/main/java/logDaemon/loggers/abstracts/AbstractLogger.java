@@ -8,7 +8,7 @@ import java.util.Map;
 
 public abstract class AbstractLogger implements SystemLogger {
     @Override
-    public void sendToLogStash(Map<String, String> params) {
+    public void sendToLogStash(Map<String, String> params, int port) {
         try (DatagramSocket socket = new DatagramSocket()) {
             StringBuilder log = new StringBuilder();
             for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -19,7 +19,7 @@ public abstract class AbstractLogger implements SystemLogger {
             }
             byte[] data = log.toString().getBytes();
             InetAddress address = InetAddress.getLocalHost();
-            socket.send(new DatagramPacket(data, data.length, address, 4445));
+            socket.send(new DatagramPacket(data, data.length, address, port));
         } catch (IOException e) {
             e.printStackTrace();
         }
