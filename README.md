@@ -3,7 +3,7 @@
 Данный проект представляет собой связку
 Java-демон  -   LogStash    -   ElasticSearch   -   KIBANA(? или/и свое окно)
 
-https://www.elastic.co/downloads/logstash
+https://www.elastic.co/downloads/logstash  
 https://www.elastic.co/downloads/elasticsearch
 https://www.elastic.co/downloads/kibana
 
