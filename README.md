@@ -4,7 +4,7 @@
 Java-демон  -   LogStash    -   ElasticSearch   -   KIBANA(? или/и свое окно)
 
 https://www.elastic.co/downloads/logstash  
-https://www.elastic.co/downloads/elasticsearch
+https://www.elastic.co/downloads/elasticsearch  
 https://www.elastic.co/downloads/kibana
 
 Java-программа собирает логи(Процессор, память и тд.) и отправляет их в ELK-стек.
