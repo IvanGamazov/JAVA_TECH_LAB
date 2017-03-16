@@ -7,15 +7,25 @@ import java.net.InetAddress;
 import java.util.Map;
 
 public abstract class AbstractLogger implements SystemLogger {
+    private int port;
+
+    public AbstractLogger(int port) {
+        this.port = port;
+    }
+
     @Override
-    public void sendToLogStash(Map<String, String> params, int port) {
+    public void sendToLogStash(Map<String, String> params) {
         try (DatagramSocket socket = new DatagramSocket()) {
             StringBuilder log = new StringBuilder();
             for (Map.Entry<String, String> entry : params.entrySet()) {
-                log.append(entry.getKey());
-                log.append("=");
-                log.append(entry.getValue().equals("") ? "null" : entry.getValue()  );
-                log.append(" ");
+                if (entry.getValue() != null) {
+                    if (!entry.getValue().equals("")) {
+                        log.append(entry.getKey());
+                        log.append("=");
+                        log.append(entry.getValue());
+                        log.append(" ");
+                    }
+                }
             }
             byte[] data = log.toString().getBytes();
             InetAddress address = InetAddress.getLocalHost();

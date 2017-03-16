@@ -1,6 +1,6 @@
 package logDaemon;
 
-import logDaemon.loggers.ProcessorLogger;
+import logDaemon.loggers.*;
 
 public class Solution {
     public static void main(String[] args) {
@@ -9,9 +9,12 @@ public class Solution {
         /*
         Add here your new Loggers ( ProcessorLogger, MemoryLogger, HddLogger etc.)
          */
-        loggerCycle.add(new ProcessorLogger());
-
-
+        int port=4445;
+        loggerCycle.add(new ProcessorLogger(port++));
+        loggerCycle.add(new MemoryLogger(port++));
+        loggerCycle.add(new BiosLogger(port++));
+        loggerCycle.add(new MotherBoardLogger(port++));
+        loggerCycle.add(new OsLogger(port++));
 
 
 

@@ -8,5 +8,5 @@ import java.util.Map;
 public interface SystemLogger {
     void collect();
 
-    void sendToLogStash(Map<String, String> params, int port);
+    void sendToLogStash(Map<String, String> params);
 }
