@@ -1,8 +1,6 @@
 package logDaemon.loggers;
 
 import logDaemon.loggers.abstracts.AbstractLogger;
-import org.jutils.jhardware.HardwareInfo;
-import org.jutils.jhardware.model.MemoryInfo;
 import oshi.SystemInfo;
 import oshi.hardware.GlobalMemory;
 

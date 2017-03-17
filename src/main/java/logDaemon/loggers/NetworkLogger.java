@@ -1,12 +1,8 @@
 package logDaemon.loggers;
 
 import logDaemon.loggers.abstracts.AbstractLogger;
-import org.jutils.jhardware.HardwareInfo;
-import org.jutils.jhardware.model.NetworkInfo;
-import org.jutils.jhardware.model.NetworkInterfaceInfo;
 import oshi.SystemInfo;
 import oshi.software.os.NetworkParams;
-import oshi.software.os.OperatingSystem;
 
 import java.util.Arrays;
 import java.util.HashMap;
