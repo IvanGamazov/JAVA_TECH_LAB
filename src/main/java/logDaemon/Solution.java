@@ -12,10 +12,12 @@ public class Solution {
         int port=4445;
         loggerCycle.add(new ProcessorLogger(port++));
         loggerCycle.add(new MemoryLogger(port++));
-        loggerCycle.add(new BiosLogger(port++));
-        loggerCycle.add(new MotherBoardLogger(port++));
+        loggerCycle.add(new SensorLogger(port++));
+        loggerCycle.add(new DiskStoresLogger(port++));
         loggerCycle.add(new OsLogger(port++));
-
+        loggerCycle.add(new NetworkLogger(port++));
+        loggerCycle.add(new PowerSourcesLogger(port++));
+        loggerCycle.add(new NetworkInterfacesLogger(port++));
 
 
         loggerCycle.start();

@@ -26,9 +26,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jhardware</groupId>
-            <artifactId>jHardware</artifactId>
-            <version>0.8.4</version>
+            <groupId>com.github.dblock</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>3.4.0</version>
         </dependency>
     </dependencies>
 </project>

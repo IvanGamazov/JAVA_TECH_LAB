@@ -3,6 +3,13 @@ package logDaemon.loggers;
 import logDaemon.loggers.abstracts.AbstractLogger;
 import org.jutils.jhardware.HardwareInfo;
 import org.jutils.jhardware.model.ProcessorInfo;
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.OperatingSystem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class for collection Processor logs
@@ -13,7 +20,19 @@ public class ProcessorLogger extends AbstractLogger {
     }
 
     public void collect() {
-        ProcessorInfo info = HardwareInfo.getProcessorInfo();
-        sendToLogStash(info.getFullInfo());
+        SystemInfo si = new SystemInfo();
+        Map<String, String> params = new HashMap<>();
+        CentralProcessor cp = si.getHardware().getProcessor();
+        params.put("Name",cp.getName());
+        params.put("Family",cp.getFamily());
+        params.put("Stepping",cp.getStepping());
+        params.put("Vendor",cp.getVendor());
+        params.put("LogicalProcessorCount",cp.getLogicalProcessorCount()+"");
+        params.put("PhysicalProcessorCount",cp.getPhysicalProcessorCount()+"");
+        params.put("SystemCpuLoad",cp.getSystemCpuLoad()+"");
+        params.put("SystemCpuLoadBetweenTicks",cp.getSystemCpuLoadBetweenTicks()+"");
+        params.put("SystemLoadAverage",cp.getSystemLoadAverage()+"");
+        params.put("Vendor",cp.getSystemUptime()+"");
+        sendToLogStash(params);
     }
 }

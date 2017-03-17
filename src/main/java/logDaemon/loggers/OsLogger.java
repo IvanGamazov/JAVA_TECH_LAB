@@ -1,11 +1,11 @@
 package logDaemon.loggers;
 
 import logDaemon.loggers.abstracts.AbstractLogger;
-import org.jutils.jhardware.HardwareInfo;
-import org.jutils.jhardware.model.DisplayInfo;
-import org.jutils.jhardware.model.GraphicsCardInfo;
-import org.jutils.jhardware.model.NetworkInfo;
-import org.jutils.jhardware.model.OSInfo;
+import oshi.SystemInfo;
+import oshi.software.os.OperatingSystem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class OsLogger extends AbstractLogger {
     public OsLogger(int port) {
@@ -14,7 +14,13 @@ public class OsLogger extends AbstractLogger {
 
     @Override
     public void collect() {
-        OSInfo info = HardwareInfo.getOSInfo();
-        sendToLogStash(info.getFullInfo());
+        SystemInfo si = new SystemInfo();
+        Map<String, String> params = new HashMap<>();
+        OperatingSystem os = si.getOperatingSystem();
+        params.put("Family", os.getFamily());
+        params.put("Manufacturer", os.getManufacturer());
+        params.put("Build_Number", os.getVersion().getBuildNumber());
+        params.put("Version", os.getVersion().getVersion());
+        sendToLogStash(params);
     }
 }
