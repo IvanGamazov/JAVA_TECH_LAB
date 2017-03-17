@@ -14,7 +14,7 @@ Java-программа собирает логи(Процессор, памят
 2) Через командую строку запустить elastic -> kibana -> logstash командами вида:  
 elastic:      elasticsearch    
 kibana :      kibana  
-logstash :    logstash pathToConfigFolder/*   или logstash configName  
+logstash :    logstash -f pathToConfigFolder/*   или logstash -f configName  
 (в момент вызова команд вы находитесь в bin/)  
 3) Kibana доступна по адресу http://localhost:5601  
 4) Запустить Java-прогу из IDE (пока так, потом запилю джарник).  
