@@ -17,7 +17,8 @@ public class SensorLogger extends AbstractLogger {
     public void collect() {
         Sensors sens = new SystemInfo().getHardware().getSensors();
         Map<String, String> temporary = new HashMap<>();
-        
+
+        temporary.put("type","Sensor");
         temporary.put("CpuTemperature",sens.getCpuTemperature()+"");
         temporary.put("CpuVoltage",sens.getCpuVoltage()+"");
         temporary.put("FanSpeeds", Arrays.toString(sens.getFanSpeeds()));

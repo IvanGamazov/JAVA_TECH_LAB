@@ -19,6 +19,7 @@ public class NetworkLogger extends AbstractLogger {
         Map<String, String> stable = new HashMap<>();
         NetworkParams net = si.getOperatingSystem().getNetworkParams();
 
+        stable.put("type","Network");
         stable.put("Host_name", net.getHostName());
         stable.put("Domain_name", net.getDomainName());
         stable.put("Ipv4DefaultGateway", net.getIpv4DefaultGateway());

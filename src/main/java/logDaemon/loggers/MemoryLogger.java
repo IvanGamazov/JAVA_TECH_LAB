@@ -18,6 +18,7 @@ public class MemoryLogger extends AbstractLogger {
         Map<String, String> temporary = new HashMap<>();
         GlobalMemory mem = si.getHardware().getMemory();
 
+        temporary.put("type","Memory");
         temporary.put("Total_Memory", mem.getTotal() + "");
         temporary.put("Available_Memory", mem.getAvailable() + "");
         temporary.put("Swap_total", mem.getSwapTotal() + "");

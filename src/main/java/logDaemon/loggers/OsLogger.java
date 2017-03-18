@@ -18,6 +18,7 @@ public class OsLogger extends AbstractLogger {
         Map<String, String> params = new HashMap<>();
         OperatingSystem os = si.getOperatingSystem();
 
+        params.put("type","OS");
         params.put("Family", os.getFamily());
         params.put("Manufacturer", os.getManufacturer());
         params.put("Build_Number", os.getVersion().getBuildNumber());

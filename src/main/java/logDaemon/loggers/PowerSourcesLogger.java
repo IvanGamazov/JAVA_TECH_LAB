@@ -18,6 +18,7 @@ public class PowerSourcesLogger extends AbstractLogger {
         Map<String, String> temporary = new HashMap<>();
 
         for (PowerSource pow : si.getHardware().getPowerSources()) {
+            temporary.put("type","Power");
             temporary.put("Name", pow.getName());
             temporary.put("RemainingCapacity", pow.getRemainingCapacity() + "");
             temporary.put("TimeRemaining", pow.getTimeRemaining() + "");
