@@ -15,15 +15,26 @@ public class DiskStoresLogger extends AbstractLogger {
     @Override
     public void collect() {
         SystemInfo si = new SystemInfo();
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> stable = new HashMap<>();
+        Map<String, String> temporary = new HashMap<>();
         for (HWDiskStore disk : si.getHardware().getDiskStores()) {
-            params.put("Name", disk.getName());
-            params.put("Model", disk.getModel());
-            params.put("Serial", disk.getSerial());
-            params.put("Size", disk.getSize() + "");
-            params.put("Reads", disk.getReads() + "");
-            params.put("Writes", disk.getWrites() + "");
-            sendToLogStash(params);
+
+            stable.put("type","HardDisk");
+            stable.put("Name", disk.getName());
+            stable.put("Model", disk.getModel());
+            stable.put("Serial", disk.getSerial());
+            stable.put("Size", disk.getSize() + "");
+
+
+            temporary.put("type","HardDisk_temporary");
+            temporary.put("Name", disk.getName());
+            temporary.put("Reads", disk.getReads() + "");
+            temporary.put("ReadBytes", disk.getReadBytes() + "");
+            temporary.put("Writes", disk.getWrites() + "");
+            temporary.put("WriteBytes", disk.getWriteBytes() + "");
+
+            sendToLogStash(stable);
+            sendToLogStash(temporary);
         }
     }
 }

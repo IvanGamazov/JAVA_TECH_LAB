@@ -15,16 +15,24 @@ public class NetworkInterfacesLogger extends AbstractLogger {
     @Override
     public void collect() {
         SystemInfo si = new SystemInfo();
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> stable = new HashMap<>();
+        Map<String, String> temporary = new HashMap<>();
         for (NetworkIF netInf : si.getHardware().getNetworkIFs()) {
-            params.put("Name", netInf.getName());
-            params.put("MacAddress", netInf.getMacaddr());
-            params.put("Speed", netInf.getSpeed() + "");
-            params.put("BytesReceived", netInf.getBytesRecv() + "");
-            params.put("BytesSent", netInf.getBytesSent() + "");
-            params.put("PacketsRecv", netInf.getPacketsRecv() + "");
-            params.put("PacketsSent", netInf.getPacketsSent() + "");
-            sendToLogStash(params);
+            stable.put("type","NetworkInterface");
+            stable.put("Name", netInf.getName());
+            stable.put("MacAddress", netInf.getMacaddr());
+
+
+            temporary.put("type","NetworkInterface_temporary");
+            temporary.put("Name", netInf.getName());
+            temporary.put("BytesReceived", netInf.getBytesRecv() + "");
+            temporary.put("BytesSent", netInf.getBytesSent() + "");
+            temporary.put("PacketsRecv", netInf.getPacketsRecv() + "");
+            temporary.put("PacketsSent", netInf.getPacketsSent() + "");
+            temporary.put("Speed", netInf.getSpeed() + "");
+
+            sendToLogStash(stable);
+            sendToLogStash(temporary);
         }
     }
 }

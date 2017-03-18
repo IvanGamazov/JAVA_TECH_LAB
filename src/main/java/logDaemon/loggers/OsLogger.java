@@ -17,10 +17,12 @@ public class OsLogger extends AbstractLogger {
         SystemInfo si = new SystemInfo();
         Map<String, String> params = new HashMap<>();
         OperatingSystem os = si.getOperatingSystem();
+
         params.put("Family", os.getFamily());
         params.put("Manufacturer", os.getManufacturer());
         params.put("Build_Number", os.getVersion().getBuildNumber());
         params.put("Version", os.getVersion().getVersion());
+
         sendToLogStash(params);
     }
 }

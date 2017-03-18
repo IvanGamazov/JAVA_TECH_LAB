@@ -15,13 +15,14 @@ public class PowerSourcesLogger extends AbstractLogger {
     @Override
     public void collect() {
         SystemInfo si = new SystemInfo();
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> temporary = new HashMap<>();
 
         for (PowerSource pow : si.getHardware().getPowerSources()) {
-            params.put("Name", pow.getName());
-            params.put("RemainingCapacity", pow.getRemainingCapacity() + "");
-            params.put("TimeRemaining", pow.getTimeRemaining() + "");
-            sendToLogStash(params);
+            temporary.put("Name", pow.getName());
+            temporary.put("RemainingCapacity", pow.getRemainingCapacity() + "");
+            temporary.put("TimeRemaining", pow.getTimeRemaining() + "");
+
+            sendToLogStash(temporary);
         }
     }
 }

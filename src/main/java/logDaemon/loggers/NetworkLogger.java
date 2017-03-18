@@ -16,14 +16,16 @@ public class NetworkLogger extends AbstractLogger {
     @Override
     public void collect() {
         SystemInfo si = new SystemInfo();
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> stable = new HashMap<>();
         NetworkParams net = si.getOperatingSystem().getNetworkParams();
-        params.put("Host_name", net.getHostName());
-        params.put("Domain_name", net.getDomainName());
-        params.put("Ipv4DefaultGateway", net.getIpv4DefaultGateway());
-        params.put("Ipv6DefaultGateway", net.getIpv6DefaultGateway());
-        params.put("DNS_Servers", Arrays.toString(net.getDnsServers()));
-        sendToLogStash(params);
+
+        stable.put("Host_name", net.getHostName());
+        stable.put("Domain_name", net.getDomainName());
+        stable.put("Ipv4DefaultGateway", net.getIpv4DefaultGateway());
+        stable.put("Ipv6DefaultGateway", net.getIpv6DefaultGateway());
+        stable.put("DNS_Servers", Arrays.toString(net.getDnsServers()));
+
+        sendToLogStash(stable);
     }
 }
 

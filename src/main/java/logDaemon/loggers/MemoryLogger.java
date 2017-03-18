@@ -15,14 +15,14 @@ public class MemoryLogger extends AbstractLogger {
     @Override
     public void collect() {
         SystemInfo si = new SystemInfo();
-        Map<String, String> params = new HashMap<>();
+        Map<String, String> temporary = new HashMap<>();
         GlobalMemory mem = si.getHardware().getMemory();
-        params.put("Total_Memory",mem.getTotal()+"");
-        params.put("Available_Memory",mem.getAvailable()+"");
-        params.put("Swap_total",mem.getSwapTotal()+"");
-        params.put("Swap_Used",mem.getSwapUsed()+"");
-        sendToLogStash(params);
 
+        temporary.put("Total_Memory", mem.getTotal() + "");
+        temporary.put("Available_Memory", mem.getAvailable() + "");
+        temporary.put("Swap_total", mem.getSwapTotal() + "");
+        temporary.put("Swap_Used", mem.getSwapUsed() + "");
 
+        sendToLogStash(temporary);
     }
 }

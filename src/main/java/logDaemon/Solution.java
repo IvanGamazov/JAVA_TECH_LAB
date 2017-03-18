@@ -19,7 +19,6 @@ public class Solution {
         loggerCycle.add(new PowerSourcesLogger(port++));
         loggerCycle.add(new NetworkInterfacesLogger(port++));
 
-
         loggerCycle.start();
     }
 }
