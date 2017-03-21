@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PowerSourcesLogger extends AbstractLogger {
-    public PowerSourcesLogger(int port) {
-        super(port);
+    public PowerSourcesLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

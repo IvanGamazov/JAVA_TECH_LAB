@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SensorLogger extends AbstractLogger {
-    public SensorLogger(int port) {
-        super(port);
+    public SensorLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TzLogger extends AbstractLogger {
-    public TzLogger(int port) {
-        super(port);
+    public TzLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkInterfacesLogger extends AbstractLogger {
-    public NetworkInterfacesLogger(int port) {
-        super(port);
+    public NetworkInterfacesLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

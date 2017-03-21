@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OsLogger extends AbstractLogger {
-    public OsLogger(int port) {
-        super(port);
+    public OsLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

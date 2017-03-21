@@ -12,8 +12,8 @@ import java.util.Map;
  * Class for collection Processor logs
  */
 public class ProcessorLogger extends AbstractLogger {
-    public ProcessorLogger(int port) {
-        super(port);
+    public ProcessorLogger(String host, int port) {
+        super(host, port);
     }
 
     public void collect() {

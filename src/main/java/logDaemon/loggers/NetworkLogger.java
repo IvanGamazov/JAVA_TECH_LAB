@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkLogger extends AbstractLogger {
-    public NetworkLogger(int port) {
-        super(port);
+    public NetworkLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

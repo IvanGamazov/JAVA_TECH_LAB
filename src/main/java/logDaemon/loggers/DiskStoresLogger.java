@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DiskStoresLogger extends AbstractLogger {
-    public DiskStoresLogger(int port) {
-        super(port);
+    public DiskStoresLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

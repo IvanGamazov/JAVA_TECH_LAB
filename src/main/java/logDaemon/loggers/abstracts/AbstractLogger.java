@@ -7,9 +7,11 @@ import java.net.InetAddress;
 import java.util.Map;
 
 public abstract class AbstractLogger implements SystemLogger {
+    private String host;
     private int port;
 
-    public AbstractLogger(int port) {
+    public AbstractLogger(String host, int port) {
+        this.host = host;
         this.port = port;
     }
 
@@ -28,7 +30,12 @@ public abstract class AbstractLogger implements SystemLogger {
                 }
             }
             byte[] data = log.toString().getBytes();
-            InetAddress address = InetAddress.getLocalHost();
+            InetAddress address;
+            if (host.equals("localhost")) {
+                address = InetAddress.getLocalHost();
+            } else {
+                address = InetAddress.getByName(host);
+            }
             socket.send(new DatagramPacket(data, data.length, address, port));
         } catch (IOException e) {
             e.printStackTrace();

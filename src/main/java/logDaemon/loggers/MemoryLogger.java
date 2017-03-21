@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MemoryLogger extends AbstractLogger {
-    public MemoryLogger(int port) {
-        super(port);
+    public MemoryLogger(String host, int port) {
+        super(host, port);
     }
 
     @Override

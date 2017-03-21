@@ -6,10 +6,12 @@ public class Solution {
     public static void main(String[] args) {
         LoggerCycle loggerCycle =new LoggerCycle();
 
+        String host=args[0].toLowerCase();
+        int port=Integer.parseInt(args[1]);
+
         /*
         Add here your new Loggers ( ProcessorLogger, MemoryLogger, HddLogger etc.)
          */
-        int port=Integer.parseInt(args[0]);
         /*
         loggerCycle.add(new ProcessorLogger(port));
         loggerCycle.add(new MemoryLogger(port));
@@ -22,9 +24,7 @@ public class Solution {
 
         */
 
-        loggerCycle.add(new TzLogger(port));
-
-
+        loggerCycle.add(new TzLogger(host, port));
 
         loggerCycle.start();
     }

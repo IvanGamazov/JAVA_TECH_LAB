@@ -17,7 +17,7 @@ kibana :      kibana
 logstash :    logstash -f pathToConfigFolder/*   или logstash -f configName  
 (в момент вызова команд вы находитесь в bin/)  
 3) Kibana доступна по адресу http://localhost:5601  
-4) В Intellij idea выставить run-> edit configurations -> program agruments -> 4445
+4) В Intellij idea выставить run-> edit configurations -> program agruments -> localhost 4445
 5) Запустить Java-прогу из Intellij Idea (пока так, потом запилю джарник).
 
 После запуска, в окне командной строки с logstash'eм появятся загруженные в цикле логи.  
