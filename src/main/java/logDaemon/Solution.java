@@ -10,6 +10,7 @@ public class Solution {
         Add here your new Loggers ( ProcessorLogger, MemoryLogger, HddLogger etc.)
          */
         int port=Integer.parseInt(args[0]);
+        /*
         loggerCycle.add(new ProcessorLogger(port));
         loggerCycle.add(new MemoryLogger(port));
         loggerCycle.add(new SensorLogger(port));
@@ -18,6 +19,12 @@ public class Solution {
         loggerCycle.add(new NetworkLogger(port));
         loggerCycle.add(new PowerSourcesLogger(port));
         loggerCycle.add(new NetworkInterfacesLogger(port));
+
+        */
+
+        loggerCycle.add(new TzLogger(port));
+
+
 
         loggerCycle.start();
     }
