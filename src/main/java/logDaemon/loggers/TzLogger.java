@@ -15,9 +15,9 @@ public class TzLogger implements SystemLogger {
         Map<String, String> params = new HashMap<>();
         GlobalMemory memory = si.getHardware().getMemory();
 
-        params.put("SystemCpuLoad", si.getHardware().getProcessor().getSystemCpuLoad() + "");
-        params.put("Memory_Load", memory.getAvailable() * 1.0 / memory.getTotal() + "");
-        params.put("PC_NAME", System.getProperty("user.name"));
+        params.put("CpuLoad", si.getHardware().getProcessor().getSystemCpuLoad() + "");
+        params.put("MemoryLoad", memory.getAvailable() * 1.0 / memory.getTotal() + "");
+        params.put("PcNAME", System.getProperty("user.name"));
         return params;
     }
 }
