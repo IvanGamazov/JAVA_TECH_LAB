@@ -17,7 +17,7 @@ public class TzLogger implements SystemLogger {
 
         params.put("CpuLoad", si.getHardware().getProcessor().getSystemCpuLoad() + "");
         params.put("MemoryLoad", memory.getAvailable() * 1.0 / memory.getTotal() + "");
-        params.put("PcNAME", System.getProperty("user.name"));
+        params.put("PcName", System.getProperty("user.name"));
         return params;
     }
 }
