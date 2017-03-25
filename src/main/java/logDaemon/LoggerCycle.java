@@ -1,6 +1,8 @@
 package logDaemon;
 
 import logDaemon.loggers.abstracts.SystemLogger;
+import sun.misc.Signal;
+import sun.misc.SignalHandler;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class LoggerCycle {
     private String host;
     private int port;
+    private boolean work = true;
 
     public LoggerCycle(String host, int port) {
         this.host = host;
@@ -30,7 +33,12 @@ public class LoggerCycle {
     }
 
     public void start() {
-        while (true) {
+        Signal.handle(new Signal("INT"), (Signal sig) -> {
+            work = false;
+            System.out.println("___please wait till end___");
+        });
+
+        while (work) {
             for (SystemLogger logger : list) {
                 sendToLogStash(logger.collect());
             }
