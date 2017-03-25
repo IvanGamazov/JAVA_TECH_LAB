@@ -19,7 +19,7 @@ logstash :    logstash -f pathToConfigFolder/*   или logstash -f configName
 3) Kibana доступна по адресу http://localhost:5601  
 Далее программу можно запускать из IDE или с помощью JAR-файла.  
 Jar файл создается в IDE с помощью команды:  
-mvn clean compile assembly:single
+mvn clean compile assembly:single  
 Команда запуска Jar в консоли:  
 java -jar JATA-TECH-1-jar-with-dependencies.jar localhost 4445  
 Оставить программу можно нажав Ctrl+C  
