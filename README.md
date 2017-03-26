@@ -9,7 +9,7 @@ https://www.elastic.co/downloads/kibana
 
 Java-программа собирает логи(Процессор, память и тд.) и отправляет их в ELK-стек.
 
-Для запуска необходимо:  
+Для запуска локально необходимо:  
 Установить Java 8 и задать JAVA_HOME:  
 http://www.oracle.com/technetwork/java/javase/downloads/2133151  
 http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7  
@@ -20,9 +20,7 @@ elastic:      elasticsearch
 kibana :      kibana  
 logstash :    logstash logstash -f configName  
 (в момент вызова команд вы находитесь в bin/)  
-где имя конфига это local.conf для теста на локальном компе, а если используется сервер, то доступ к данным по ссылке вида:  
-sviridoffcottage.ddns.net/system_logs/_search  
-
+где имя конфига это local.conf для теста на локальном компе,
 3) Kibana доступна по адресу http://localhost:5601  
 Далее программу можно запускать из IDE или с помощью JAR-файла.
 Если запускать из IDE:  
