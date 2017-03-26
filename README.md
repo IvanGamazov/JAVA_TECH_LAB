@@ -18,7 +18,7 @@ http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7
 2) Через командую строку запустить elastic -> kibana -> logstash командами вида:  
 elastic:      elasticsearch    
 kibana :      kibana  
-logstash :    logstash logstash -f configName
+logstash :    logstash logstash -f configName  
 где имя конфига это local.conf для теста на локальном компе, а server.conf для работы с удаленным сервером.
 (в момент вызова команд вы находитесь в bin/)
 
