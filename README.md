@@ -18,18 +18,21 @@ http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7
 2) Через командую строку запустить elastic -> kibana -> logstash командами вида:  
 elastic:      elasticsearch    
 kibana :      kibana  
-logstash :    logstash -f pathToConfigFolder/*   или logstash -f configName  
-(в момент вызова команд вы находитесь в bin/)  
+logstash :    logstash logstash -f configName
+где имя конфига это local.conf для теста на локальном компе, а server.conf для работы с удаленным сервером.
+(в момент вызова команд вы находитесь в bin/)
+
 3) Kibana доступна по адресу http://localhost:5601  
-Далее программу можно запускать из IDE или с помощью JAR-файла.  
-Jar файл создается в IDE с помощью команды:  
-mvn clean compile assembly:single  
-Команда запуска Jar в консоли:  
-java -jar JATA-TECH-1-jar-with-dependencies.jar localhost 4445  
-Оставить программу можно нажав Ctrl+C  
+Далее программу можно запускать из IDE или с помощью JAR-файла.
 Если запускать из IDE:  
 4) В Intellij idea выставить run-> edit configurations -> program agruments -> localhost 4445  
-5) Start  
+5) Start
+Если Jar:  
+Jar файл создается в IDE с помощью команды:
+mvn clean compile assembly:single
+Команда запуска Jar в консоли:
+java -jar JATA-TECH-1-jar-with-dependencies.jar localhost 4445
+Оставить программу можно нажав Ctrl+C
   
 После запуска, в окне командной строки с logstash'eм появятся загруженные в цикле логи.  
 Посмотреть их можно в kiban'e  
