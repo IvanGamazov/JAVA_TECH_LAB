@@ -26,7 +26,7 @@ logstash :    logstash logstash -f configName
 Далее программу можно запускать из IDE или с помощью JAR-файла.
 Если запускать из IDE:  
 4) В Intellij idea выставить run-> edit configurations -> program agruments -> localhost 4445  
-5) Start
+5) Start  
 Если Jar:  
 Jar файл создается в IDE с помощью команды:
 mvn clean compile assembly:single
